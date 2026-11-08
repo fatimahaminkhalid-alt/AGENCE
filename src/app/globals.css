@@ -1,0 +1,318 @@
+/* =========================================================
+   Global styles: everything shared across the whole site.
+   Each section's own styles live in a file next to it (*.module.css).
+   ========================================================= */
+
+/* ---------- Design tokens (from Figma) ---------- */
+:root {
+  --primary: #2505ed;
+  --primary-soft: #eeebfd;
+  --accent: #e96d07;
+  --bg: #faf5f5;
+  --surface: #ffffff;
+  --border: #e9e4e8;
+  --text: #0d0d12;
+  --text-muted: #6b6b76;
+  --success: #1f9d55;
+  --success-soft: #e3f5ea;
+  --neutral-soft: #ececef;
+
+  /* Colors */
+  --c-primary: #2505ed;
+  --c-primary-dark: #1a03b8;
+  --c-accent: #e96d07;
+  --c-accent-dark: #c95c04;
+  --c-ink: #070606;
+  --c-text: #514c4c;
+  --c-muted: #8a8484;
+  --c-placeholder: #b3aeae;
+  --c-line: #e9e2e2;
+  --c-input: #d4d3d3;
+  --c-tint: #faf4f4;
+  --c-white: #ffffff;
+  --c-error: #e1251b;
+  --c-error-bg: #fdecec;
+  --c-success: #12854a;
+  --c-success-bg: #e8f6ee;
+  --c-wordmark: #e6dedd;
+
+  /* Fonts: the variables come from next/font in layout.tsx */
+  --font-ar: var(--font-rubik), "Segoe UI", Tahoma, sans-serif;
+  --font-latin: var(--font-montserrat), var(--font-rubik), sans-serif;
+
+  /* Type scale */
+  --fs-hero: clamp(2.25rem, 1.4rem + 3.6vw, 4rem);
+  --fs-xl: clamp(2.25rem, 1.6rem + 2.8vw, 4.25rem);
+  --fs-lg: clamp(1.875rem, 1.4rem + 2vw, 3.25rem);
+  --fs-md: clamp(1.625rem, 1.3rem + 1.4vw, 2.75rem);
+  --fs-card: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem);
+  --fs-body: 1.125rem;
+  --fs-sm: 0.9375rem;
+
+  /* Spacing and shapes */
+  --container: 1280px;
+  --section-y: clamp(64px, 5vw + 40px, 120px);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+  --shadow-card: 0 18px 40px -24px rgba(37, 5, 237, 0.25);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px; /* so the fixed header doesn't cover a section when you jump to it */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-ar);
+  font-size: var(--fs-body);
+  line-height: 1.8;
+  color: var(--c-text);
+  background: var(--c-white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+[hidden] {
+  display: none !important;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+h1, h2, h3, h4, p, ul, ol {
+  margin: 0;
+}
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  color: var(--c-ink);
+  line-height: 1.25;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + 64px);
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+.section--tint {
+  background: var(--c-tint);
+}
+
+.latin {
+  font-family: var(--font-latin);
+}
+
+/* ---------- Icons ---------- */
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon--accent {
+  color: var(--c-accent);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  min-height: 48px;
+  padding: 0 1.6em;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease),
+    transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn:disabled,
+.btn[aria-busy="true"] {
+  opacity: 0.7;
+  cursor: progress;
+  transform: none;
+}
+
+.btn--primary {
+  background: var(--c-primary);
+  color: var(--c-white);
+}
+.btn--primary:hover {
+  background: var(--c-primary-dark);
+  box-shadow: 0 10px 24px -10px rgba(37, 5, 237, 0.6);
+}
+.btn--accent {
+  background: var(--c-accent);
+  color: var(--c-ink);
+}
+.btn--accent:hover {
+  background: var(--c-accent-dark);
+}
+.btn--light {
+  background: var(--c-white);
+  color: var(--c-ink);
+}
+.btn--light:hover {
+  background: var(--c-tint);
+}
+.btn--outline-light {
+  border-color: var(--c-white);
+  color: var(--c-white);
+  background: transparent;
+}
+.btn--outline-light:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn--sm {
+  min-height: 40px;
+  padding: 0 1.2em;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+.btn--lg {
+  min-height: 54px;
+  padding: 0 1.8em;
+  font-weight: 600;
+}
+.btn--pill {
+  border-radius: var(--radius-pill);
+  min-height: 56px;
+  padding: 0 2em;
+}
+
+/* ---------- Headings and labels ---------- */
+.title-xl { font-size: var(--fs-xl); }
+.title-lg { font-size: var(--fs-lg); }
+.title-md { font-size: var(--fs-md); }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  margin-bottom: 14px;
+  color: var(--c-primary);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+.eyebrow--star::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: var(--c-accent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linejoin='round'%3E%3Cpath d='M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linejoin='round'%3E%3Cpath d='M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ---------- Logo ---------- */
+.brand {
+  display: inline-block;
+  flex: none;
+}
+.brand--md img { width: 46px; }
+.brand--lg img { width: 84px; }
+
+/* ---------- Text link ---------- */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--c-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.text-link:hover {
+  color: var(--c-accent);
+}
+.text-link .icon {
+  transition: transform 0.2s var(--ease);
+}
+.text-link:hover .icon {
+  transform: translate(-3px, -3px);
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 680px) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

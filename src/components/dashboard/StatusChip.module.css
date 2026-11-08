@@ -1,0 +1,19 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+.draft     { background: var(--neutral-soft); color: #55555f; }
+.published { background: var(--primary-soft); color: var(--primary); }
+.receiving { background: var(--primary); color: #fff; }
+.selected  { background: var(--success-soft); color: var(--success); }
+.completed { background: #d9f0e1; color: #14733d; }
+.cancelled { background: #fde7e7; color: #c0392b; }

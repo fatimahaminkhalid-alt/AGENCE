@@ -1,0 +1,83 @@
+.footer {
+  background: var(--c-tint);
+  border-top: 1px solid var(--c-line);
+  padding-top: 32px;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--c-line);
+}
+
+.about {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  max-width: 360px;
+}
+.about p {
+  font-size: 1rem;
+}
+
+.col {
+  padding-top: 56px;
+}
+.col h3 {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+.col ul {
+  display: grid;
+  gap: 14px;
+}
+.col a {
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+.col a:hover {
+  color: var(--c-primary);
+}
+
+.copy {
+  padding-block: 24px;
+  font-size: 0.9375rem;
+}
+
+/* The large "AGENCE" word at the bottom of the page */
+.wordmark {
+  font-family: var(--font-latin);
+  font-weight: 800;
+  font-size: clamp(5rem, 21vw, 19rem);
+  line-height: 0.72;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--c-wordmark);
+  direction: ltr;
+  margin-top: 40px;
+  height: 0.6em; /* clips the bottom of the letters as in the design */
+  overflow: hidden;
+  user-select: none;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .about {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+  .col {
+    padding-top: 0;
+  }
+}
+@media (max-width: 680px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

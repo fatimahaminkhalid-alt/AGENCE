@@ -1,0 +1,124 @@
+.heading {
+  margin-bottom: 56px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 48px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--c-line);
+  background: var(--c-white);
+}
+
+.badge {
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  background: #fce8da;
+  color: var(--c-ink);
+  font-size: 0.875rem;
+}
+
+.title {
+  font-size: clamp(1.625rem, 1.3rem + 1vw, 2rem);
+  margin-top: -12px;
+}
+
+.cta {
+  margin-top: 8px;
+}
+
+.steps {
+  display: grid;
+  gap: 34px;
+  counter-reset: step;
+}
+.steps li {
+  position: relative;
+  counter-increment: step;
+  padding-inline-start: 72px;
+  min-height: 48px;
+}
+/* numbered circle */
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  inset-inline-start: 0;
+  top: -8px;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  color: var(--c-ink);
+  font-family: var(--font-latin);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+/* line connecting the steps */
+.steps li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 23px;
+  top: 40px;
+  bottom: -42px;
+  width: 2px;
+  background: var(--c-line);
+}
+.steps h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.steps p {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/* Blue card */
+.blue {
+  background: var(--c-primary);
+  border-color: var(--c-primary);
+  color: rgba(255, 255, 255, 0.85);
+}
+.blue h3,
+.blue h4 {
+  color: var(--c-white);
+}
+.blue .badge {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--c-white);
+}
+.blue .steps li::before {
+  background: var(--c-white);
+  color: var(--c-primary);
+}
+.blue .steps li:not(:last-child)::after {
+  background: rgba(255, 255, 255, 0.3);
+}
+.blue .cta {
+  color: var(--c-primary);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 680px) {
+  .card {
+    padding: 28px 22px;
+  }
+  .steps li {
+    padding-inline-start: 62px;
+  }
+}

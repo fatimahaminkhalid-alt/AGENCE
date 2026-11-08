@@ -1,0 +1,68 @@
+.cta {
+  position: relative;
+  isolation: isolate; /* keeps the blur clipped inside the rounded corners in every browser */
+  overflow: hidden;
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+  padding: clamp(48px, 6vw, 88px) 24px;
+  border-radius: var(--radius-lg);
+  background: var(--c-primary);
+  color: rgba(255, 255, 255, 0.88);
+  text-align: center;
+}
+
+.title {
+  color: var(--c-white);
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+.title :global(.latin) {
+  font-weight: 800;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+.primary {
+  color: var(--c-primary);
+}
+
+.login {
+  font-size: 0.9375rem;
+}
+.login a {
+  color: var(--c-white);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 500;
+}
+
+/* Decorative shapes */
+.dot {
+  position: absolute;
+  z-index: 1;
+  border-radius: var(--radius-pill);
+  pointer-events: none;
+}
+.dot1 { width: 44px; height: 16px; background: var(--c-accent); top: 16%; inset-inline-end: 12%; transform: rotate(-35deg); }
+.dot2 { width: 34px; height: 13px; background: var(--c-accent); bottom: 12%; inset-inline-end: 15%; transform: rotate(50deg); }
+.dot3 { width: 24px; height: 24px; background: var(--c-accent); top: 10%; inset-inline-start: 4%; }
+.dot4 { width: 34px; height: 13px; background: var(--c-accent); top: 33%; inset-inline-start: 10%; transform: rotate(30deg); }
+.dot5 { width: 40px; height: 40px; background: radial-gradient(circle at 35% 35%, #fff, #c9c8ff 70%); bottom: 18%; inset-inline-start: 14%; box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18); }
+.dot6 { width: 16px; height: 16px; background: #a9a2ff; bottom: 10%; inset-inline-end: 3%; }
+
+@media (max-width: 680px) {
+  .actions :global(.btn) {
+    width: 100%;
+  }
+  .dot2, .dot4, .dot5 {
+    display: none;
+  }
+  .dot1 {
+    top: 4%;
+    inset-inline-end: 6%;
+  }
+}

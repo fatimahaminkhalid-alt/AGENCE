@@ -1,0 +1,181 @@
+.header {
+  position: fixed;
+  inset-inline: 0;
+  top: calc(16px + env(safe-area-inset-top, 0px));
+  z-index: 50;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  pointer-events: none; /* only the bar itself takes clicks */
+}
+
+.bar {
+  position: relative;
+  pointer-events: auto;
+  max-width: 1400px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  min-height: 96px;
+  padding: 10px clamp(16px, 4vw, 60px);
+  border-radius: 24px;
+  background: rgba(214, 220, 236, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  transition: background-color 0.3s var(--ease), box-shadow 0.3s var(--ease), min-height 0.3s var(--ease);
+}
+.scrolled .bar {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 30px -18px rgba(7, 6, 6, 0.35);
+  min-height: 76px;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.links {
+  display: flex;
+  gap: clamp(16px, 2.4vw, 44px);
+}
+.links a {
+  position: relative;
+  color: var(--c-ink);
+  font-size: 1.0625rem;
+  padding-block: 6px;
+}
+.links a::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--c-primary);
+  transform: scaleX(0);
+  transition: transform 0.25s var(--ease);
+}
+.links a:hover::after,
+.links a.active::after {
+  transform: scaleX(1);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.login {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-inline-end: 6px;
+  color: var(--c-ink);
+  font-size: 1.0625rem;
+}
+.login :global(.icon) {
+  width: 1.05em;
+  height: 1.05em;
+}
+.login:hover {
+  color: var(--c-primary);
+}
+
+.toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  margin-inline-start: auto;
+  border: 0;
+  border-radius: 12px;
+  background: var(--c-white);
+  cursor: pointer;
+  place-content: center;
+  gap: 5px;
+}
+.toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--c-ink);
+  border-radius: 2px;
+  transition: transform 0.25s var(--ease), opacity 0.2s;
+}
+.toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 1180px) {
+  .links { gap: 20px; }
+  .login { display: none; }
+}
+
+/* Mobile menu */
+@media (max-width: 1024px) {
+  .bar {
+    min-height: 72px;
+    border-radius: 18px;
+  }
+  .toggle {
+    display: grid;
+  }
+
+  .nav {
+    position: absolute;
+    top: calc(100% + 10px);
+    inset-inline: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 24px;
+    border-radius: 18px;
+    background: var(--c-white);
+    box-shadow: 0 24px 50px -20px rgba(7, 6, 6, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0.25s;
+  }
+  .nav.open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .links a {
+    display: block;
+    padding: 10px 4px;
+    font-size: 1.125rem;
+  }
+  .links a::after {
+    display: none;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    border-top: 1px solid var(--c-line);
+    padding-top: 20px;
+  }
+  .login {
+    display: inline-flex;
+    justify-content: center;
+    padding: 8px;
+  }
+  .actions :global(.btn) {
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 680px) {
+  .bar :global(.brand img) {
+    width: 36px;
+  }
+}

@@ -1,0 +1,135 @@
+/* Shared form styles for the account pages (field, alert, checkbox) */
+
+/* ---------- Field ---------- */
+.field {
+  display: grid;
+  gap: 10px;
+}
+.field label {
+  color: var(--c-ink);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.field input {
+  width: 100%;
+  min-height: 58px;
+  padding: 12px 16px;
+  border: 1px solid var(--c-input);
+  border-radius: var(--radius-sm);
+  background: var(--c-white);
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field input::placeholder {
+  color: var(--c-placeholder);
+  opacity: 1;
+}
+/* Email and number fields: typed left to right, but the placeholder text stays on the right */
+.field input[type="tel"],
+.field input[dir="ltr"]:placeholder-shown {
+  text-align: right;
+}
+.field input:focus {
+  outline: none;
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 3px rgba(37, 5, 237, 0.12);
+}
+
+/* Error state */
+.hasError input:not([type="checkbox"]) {
+  border-color: var(--c-error);
+}
+.error {
+  color: var(--c-error);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* ---------- Alerts ---------- */
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+.alert :global(.icon) {
+  flex: none;
+}
+.success {
+  background: var(--c-success-bg);
+  color: var(--c-success);
+  border: 1px solid #bfe6cf;
+}
+.danger {
+  background: var(--c-error-bg);
+  color: var(--c-error);
+  border: 1px solid #f6c4c1;
+}
+.info {
+  background: #eeecfe;
+  color: var(--c-primary);
+  border: 1px solid #d5d0fb;
+}
+
+/* ---------- Checkbox ---------- */
+.checkWrap {
+  display: grid;
+  gap: 8px;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.check input {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border: 1.5px solid var(--c-ink);
+  border-radius: 5px;
+  background: var(--c-white);
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.check input::after {
+  content: "";
+  width: 10px;
+  height: 6px;
+  border: solid var(--c-white);
+  border-width: 0 0 2px 2px;
+  transform: rotate(-45deg) translate(1px, -1px);
+  opacity: 0;
+}
+.check input:checked {
+  background: var(--c-primary);
+  border-color: var(--c-primary);
+}
+.check input:checked::after {
+  opacity: 1;
+}
+.check input:focus-visible {
+  outline: 3px solid var(--c-accent);
+  outline-offset: 2px;
+}
+.hasError .check input {
+  border-color: var(--c-error);
+}
+.check label {
+  font-size: 0.9375rem;
+  color: var(--c-text);
+  cursor: pointer;
+}
+.check label a {
+  color: var(--c-primary);
+}
+.check label a:hover {
+  text-decoration: underline;
+}

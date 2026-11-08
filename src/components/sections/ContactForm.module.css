@@ -1,0 +1,132 @@
+.form {
+  display: grid;
+  gap: 22px;
+  padding: clamp(24px, 4vw, 48px);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  background: var(--c-white);
+}
+
+.field {
+  display: grid;
+  gap: 10px;
+}
+.field label {
+  color: var(--c-ink);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 58px;
+  padding: 12px 16px;
+  border: 1px solid var(--c-input);
+  border-radius: var(--radius-sm);
+  background: var(--c-white);
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field input[type="tel"],
+.field input[dir="ltr"]:placeholder-shown {
+  text-align: right;
+}
+.field textarea {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.7;
+}
+.field ::placeholder {
+  color: var(--c-placeholder);
+  opacity: 1;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 3px rgba(37, 5, 237, 0.12);
+}
+
+/* Select with an arrow on the left as in the design */
+.select {
+  position: relative;
+}
+.select select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-inline-end: 48px;
+}
+.select select.placeholder {
+  color: var(--c-placeholder);
+}
+.select option {
+  color: var(--c-ink);
+}
+.select::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: 22px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border: solid var(--c-ink);
+  border-width: 0 2px 2px 0;
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+/* Error state */
+.hasError input,
+.hasError select,
+.hasError textarea {
+  border-color: var(--c-error);
+}
+.error {
+  color: var(--c-error);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* Alerts */
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+.success {
+  background: var(--c-success-bg);
+  color: var(--c-success);
+  border: 1px solid #bfe6cf;
+}
+.failure {
+  background: var(--c-error-bg);
+  color: var(--c-error);
+  border: 1px solid #f6c4c1;
+}
+
+.submit {
+  justify-self: start; /* start = right in RTL */
+  min-width: 218px;
+}
+
+.trap {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  inset-inline-start: -9999px;
+}
+
+@media (max-width: 680px) {
+  .submit {
+    justify-self: stretch;
+  }
+}

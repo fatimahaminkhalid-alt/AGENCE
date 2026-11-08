@@ -1,0 +1,26 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.text {
+  display: grid;
+  gap: 18px;
+  padding-inline-start: 40px;
+  border-inline-start: 1px solid var(--c-line);
+  max-width: 500px;
+  justify-self: end;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .text {
+    justify-self: start;
+    max-width: none;
+    padding-inline-start: 24px;
+  }
+}
