@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Rubik, Montserrat } from "next/font/google";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import "./globals.css";
 
 /**
@@ -44,10 +45,27 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+/**
+ * A small script that runs before the page appears: it adds the js-motion class to hide the hero elements
+ * until GSAP shows them (no "flash"). It doesn't run for people who turn off motion,
+ * and if the animation doesn't start within 3 seconds it removes the class so the content always shows.
+ */
+const motionScript = `(function(){var d=document.documentElement;
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+d.classList.add('js-motion');
+setTimeout(function(){if(!d.classList.contains('motion-ready'))d.classList.remove('js-motion')},3000);})();`;
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ar" dir="rtl" className={`${rubik.variable} ${montserrat.variable}`}>
-      <body>{children}</body>
+    // suppressHydrationWarning: because the script above changes the html classes before React loads
+    <html lang="ar" dir="rtl" className={`${rubik.variable} ${montserrat.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: motionScript }} />
+      </head>
+      <body>
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }

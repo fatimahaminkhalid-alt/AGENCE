@@ -61,7 +61,7 @@ export function Header() {
 
   return (
     <header ref={headerRef} className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
-      <div className={styles.bar}>
+      <div className={styles.bar} data-header>
         <Logo />
 
         <nav id="main-nav" className={`${styles.nav} ${open ? styles.open : ""}`} aria-label="القائمة الرئيسية">

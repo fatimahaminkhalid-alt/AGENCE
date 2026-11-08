@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className="container">
-        <div className={styles.grid}>
+        <div className={styles.grid} data-stagger>
           <div className={styles.about}>
             <Logo size="lg" />
             <p>AGENCE منصة سعودية تربط المستفيدين من الخدمات الإعلامية بالوكالات والمستقلين المتخصصين.</p>
@@ -32,8 +32,11 @@ export function Footer() {
         <p className={styles.copy}>جميع الحقوق محفوظة لـ AGENCE © {year}</p>
       </div>
 
-      <div className={styles.wordmark} aria-hidden="true">
-        AGENCE
+      {/* Each letter in its own element so they rise one after another (fine because the word is English) */}
+      <div className={styles.wordmark} aria-hidden="true" data-wordmark>
+        {"AGENCE".split("").map((letter, i) => (
+          <span key={i}>{letter}</span>
+        ))}
       </div>
     </footer>
   );

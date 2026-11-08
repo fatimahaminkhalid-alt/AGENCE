@@ -5,18 +5,6 @@
 
 /* ---------- Design tokens (from Figma) ---------- */
 :root {
-  --primary: #2505ed;
-  --primary-soft: #eeebfd;
-  --accent: #e96d07;
-  --bg: #faf5f5;
-  --surface: #ffffff;
-  --border: #e9e4e8;
-  --text: #0d0d12;
-  --text-muted: #6b6b76;
-  --success: #1f9d55;
-  --success-soft: #e3f5ea;
-  --neutral-soft: #ececef;
-
   /* Colors */
   --c-primary: #2505ed;
   --c-primary-dark: #1a03b8;
@@ -294,6 +282,46 @@ h1, h2, h3, h4 {
 }
 .text-link:hover .icon {
   transform: translate(-3px, -3px);
+}
+
+/* ---------- Motion (GSAP + Lenis) ---------- */
+
+/* Text for screen readers only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Each word inside a mask: it rises from below and appears gradually.
+   The padding gives room for the dots and tails of Arabic letters so they don't get clipped. */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-block: 0.08em 0.22em;
+  margin-block: -0.08em -0.22em;
+}
+.split-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Starting state of the hero before the animation runs, to prevent a "flash".
+   The js-motion class is added by a small script in layout.tsx, and only when motion isn't turned off.
+   If JavaScript fails for any reason, the class is removed after 3 seconds and everything shows. */
+html.js-motion [data-hero-item],
+html.js-motion [data-header] {
+  opacity: 0;
+}
+html.js-motion [data-hero] [data-split] .split-inner {
+  transform: translateY(110%);
 }
 
 /* ---------- Phone ---------- */

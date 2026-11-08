@@ -5,7 +5,7 @@ import styles from "./Ticker.module.css";
 export function Ticker() {
   return (
     <div className={styles.ticker} aria-label="مجالات الخدمات">
-      <div className={styles.track}>
+      <div className={styles.track} data-ticker>
         {[0, 1].map((copy) => (
           <ul key={copy} className={styles.list} aria-hidden={copy === 1 ? true : undefined}>
             {tickerItems.map((item) => (

@@ -63,6 +63,7 @@
   font-family: var(--font-latin);
   font-weight: 700;
   font-size: 1.25rem;
+  transform: scale(var(--dot, 1)); /* the circle pops in (HomeAnimations) */
 }
 /* line connecting the steps */
 .steps li:not(:last-child)::after {
@@ -73,6 +74,8 @@
   bottom: -42px;
   width: 2px;
   background: var(--c-line);
+  transform: scaleY(var(--line, 1)); /* the line draws itself as you scroll (HomeAnimations) */
+  transform-origin: top;
 }
 .steps h4 {
   font-size: 1.25rem;

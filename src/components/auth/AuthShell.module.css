@@ -1,10 +1,7 @@
 .shell {
-  position: relative;
-  isolation: isolate;
   min-height: 100vh;
   min-height: 100dvh;
   background: var(--c-tint);
-  overflow-x: hidden;
 }
 
 /* Two halves: content on the right (first in RTL) and the panel on the left */
@@ -14,14 +11,10 @@
 }
 
 .main {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
-  background: var(--c-tint);
-  background: var(--c-tint);
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
@@ -122,13 +115,6 @@
   .panel {
     display: none;
   }
-  .main {
-    background: transparent;
-  }
-  .content {
-    background: rgba(255, 255, 255, 0.92);
-    border-radius: var(--radius-lg);
-  }
 }
 @media (max-width: 680px) {
   .top {
@@ -141,3 +127,57 @@
     padding-block: 32px 48px;
   }
 }
+
+/* =========================================================
+   Entrance motion (CSS only, no JavaScript)
+   The heading, the subtitle, then the form elements, one after another.
+   If the visitor has turned off motion, the global rule in globals.css stops it and everything shows immediately.
+   ========================================================= */
+@keyframes authRise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes authFloat {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-14px);
+  }
+}
+
+/* backwards: the start state applies during the delay, and when it ends control returns to the normal styles
+   (so hover effects like lifting the buttons keep working) */
+.top {
+  animation: authRise 0.7s var(--ease) backwards;
+}
+.content > :not(form),
+.content form > * {
+  animation: authRise 0.8s var(--ease) backwards;
+}
+.content > :nth-child(1) { animation-delay: 0.05s; }
+.content > :nth-child(2) { animation-delay: 0.12s; }
+.content form > :nth-child(1) { animation-delay: 0.2s; }
+.content form > :nth-child(2) { animation-delay: 0.26s; }
+.content form > :nth-child(3) { animation-delay: 0.32s; }
+.content form > :nth-child(4) { animation-delay: 0.38s; }
+.content form > :nth-child(5) { animation-delay: 0.44s; }
+.content form > :nth-child(6) { animation-delay: 0.5s; }
+.content form > :nth-child(7) { animation-delay: 0.56s; }
+.content form > :nth-child(8) { animation-delay: 0.62s; }
+.content form > :nth-child(n + 9) { animation-delay: 0.68s; }
+
+/* Panel: the content appears, then the image floats gently */
+.panelInner {
+  animation: authRise 1s var(--ease) 0.15s backwards;
+}
+.panelImg {
+  animation: authFloat 5s ease-in-out 1.2s infinite alternate;
+}
+

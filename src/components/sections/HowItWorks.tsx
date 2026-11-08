@@ -2,6 +2,7 @@ import { paths } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/Icon";
+import { SplitWords } from "@/components/motion/SplitWords";
 import styles from "./HowItWorks.module.css";
 
 export function HowItWorks() {
@@ -9,9 +10,11 @@ export function HowItWorks() {
     <section id="how" className="section section--tint">
       <div className="container">
         <Eyebrow star>كيف تعمل AGENCE؟</Eyebrow>
-        <h2 className={`title-lg ${styles.heading}`}>اختر مسارك وابدأ بخطوات واضحة</h2>
+        <h2 className={`title-lg ${styles.heading}`}>
+          <SplitWords text="اختر مسارك وابدأ بخطوات واضحة" />
+        </h2>
 
-        <div className={styles.grid}>
+        <div className={styles.grid} data-stagger>
           {paths.map((path) => {
             const blue = path.variant === "blue";
             return (
@@ -20,7 +23,7 @@ export function HowItWorks() {
                 <h3 className={styles.title}>{path.title}</h3>
 
                 {/* <ol> because order matters here: step 1 then 2 then 3 */}
-                <ol className={styles.steps}>
+                <ol className={styles.steps} data-steps>
                   {path.steps.map((step) => (
                     <li key={step.title}>
                       <h4>{step.title}</h4>

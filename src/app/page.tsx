@@ -8,6 +8,7 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Audiences } from "@/components/sections/Audiences";
 import { Contact } from "@/components/sections/Contact";
 import { Cta } from "@/components/sections/Cta";
+import { HomeAnimations } from "@/components/motion/HomeAnimations";
 
 /**
  * The home page: just stacks the sections in the same order as the design.
@@ -28,6 +29,7 @@ export default function HomePage() {
         <Cta />
       </main>
       <Footer />
+      <HomeAnimations />
     </>
   );
 }

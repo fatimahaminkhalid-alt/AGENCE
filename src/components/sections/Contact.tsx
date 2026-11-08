@@ -1,6 +1,7 @@
 import { contactInfo } from "@/lib/content";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/Icon";
+import { SplitWords } from "@/components/motion/SplitWords";
 import { ContactForm } from "./ContactForm";
 import styles from "./Contact.module.css";
 
@@ -14,12 +15,14 @@ export function Contact() {
       <div className={`container ${styles.grid}`}>
         <div>
           <Eyebrow star>تواصل معنا</Eyebrow>
-          <h2 className="title-lg">كيف يمكننا مساعدتك؟</h2>
-          <p className={styles.lead}>
+          <h2 className="title-lg">
+            <SplitWords text="كيف يمكننا مساعدتك؟" />
+          </h2>
+          <p className={styles.lead} data-reveal>
             تواصل مع فريق AGENCE للاستفسارات العامة، أو الدعم، أو فرص الشراكة، وسنرد عليك عبر بيانات التواصل التي تسجلها في النموذج.
           </p>
 
-          <ul className={styles.list}>
+          <ul className={styles.list} data-stagger>
             {contactInfo.map((item) => (
               <li key={item.label}>
                 <span className={styles.icon}>
@@ -34,7 +37,9 @@ export function Contact() {
           </ul>
         </div>
 
-        <ContactForm />
+        <div data-reveal>
+          <ContactForm />
+        </div>
       </div>
     </section>
   );

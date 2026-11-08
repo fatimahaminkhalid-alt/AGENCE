@@ -6,12 +6,24 @@
 }
 
 .text {
+  position: relative;
   display: grid;
   gap: 18px;
   padding-inline-start: 40px;
-  border-inline-start: 1px solid var(--c-line);
   max-width: 500px;
   justify-self: end;
+}
+/* The divider line (it grows from top to bottom through the --divider variable in HomeAnimations) */
+.text::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--c-line);
+  transform: scaleY(var(--divider, 1));
+  transform-origin: top;
 }
 
 @media (max-width: 1024px) {

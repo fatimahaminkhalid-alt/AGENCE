@@ -2,6 +2,7 @@ import { routes, services } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/Icon";
+import { SplitWords } from "@/components/motion/SplitWords";
 import styles from "./Services.module.css";
 
 export function Services() {
@@ -11,13 +12,15 @@ export function Services() {
         <div className={styles.head}>
           <div>
             <Eyebrow star>مجالات الخدمات</Eyebrow>
-            <h2 className="title-lg">خدمات إعلامية لمختلف احتياجات مشروعك</h2>
+            <h2 className="title-lg">
+              <SplitWords text="خدمات إعلامية لمختلف احتياجات مشروعك" />
+            </h2>
           </div>
-          <p className={styles.desc}>اكتشف مقدمي الخدمات المتخصصين في أربعة مجالات إعلامية رئيسية.</p>
+          <p className={styles.desc} data-reveal>اكتشف مقدمي الخدمات المتخصصين في أربعة مجالات إعلامية رئيسية.</p>
         </div>
 
         {/* One card repeats over the data: adding a service in content.ts adds a card here automatically */}
-        <div className={styles.grid}>
+        <div className={styles.grid} data-stagger>
           {services.map((service, i) => (
             <article key={service.title} className={styles.card}>
               <div className={styles.top}>
@@ -36,10 +39,12 @@ export function Services() {
           ))}
         </div>
 
-        <Button href={routes.registerClient} shape="pill">
-          اطلب الخدمة التي تحتاجها
-          <Icon name="arrowUpLeft" />
-        </Button>
+        <div data-reveal>
+          <Button href={routes.registerClient} shape="pill" magnetic>
+            اطلب الخدمة التي تحتاجها
+            <Icon name="arrowUpLeft" />
+          </Button>
+        </div>
       </div>
     </section>
   );

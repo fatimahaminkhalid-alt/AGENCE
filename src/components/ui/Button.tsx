@@ -18,9 +18,19 @@ type Props = {
   size?: Size;
   shape?: Shape;
   className?: string;
+  /** The button follows the mouse slightly (the motion is in HomeAnimations) */
+  magnetic?: boolean;
 };
 
-export function Button({ href, children, variant = "primary", size = "md", shape = "rounded", className }: Props) {
+export function Button({
+  href,
+  children,
+  variant = "primary",
+  size = "md",
+  shape = "rounded",
+  className,
+  magnetic = false,
+}: Props) {
   const classes = [
     "btn",
     `btn--${variant}`,
@@ -32,7 +42,7 @@ export function Button({ href, children, variant = "primary", size = "md", shape
     .join(" ");
 
   return (
-    <Link href={href} className={classes}>
+    <Link href={href} className={classes} data-magnetic={magnetic || undefined}>
       {children}
     </Link>
   );

@@ -63,6 +63,9 @@
   overflow: hidden;
   user-select: none;
 }
+.wordmark span {
+  display: inline-block;
+}
 
 @media (max-width: 1024px) {
   .grid {
