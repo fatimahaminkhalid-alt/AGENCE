@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { AuthShell } from "@/components/auth/AuthShell";
 import { LoginForm } from "@/components/auth/LoginForm";
 
@@ -11,15 +12,12 @@ export const metadata: Metadata = {
   title: "تسجيل الدخول",
 };
 
-type Props = { searchParams: Promise<{ registered?: string }> };
-
-export default async function LoginPage({ searchParams }: Props) {
-  // ?registered=1 means they just created an account, so we show a success message
-  const { registered } = await searchParams;
-
+export default function LoginPage() {
   return (
     <AuthShell panel="beneficiaries">
-      <LoginForm registered={registered === "1"} />
+      <Suspense fallback={null}>
+        <LoginForm />
+      </Suspense>
     </AuthShell>
   );
 }

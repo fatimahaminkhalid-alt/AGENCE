@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useRef, useState, type FormEvent } from "react";
 import { routes } from "@/lib/content";
 import { postJson } from "@/lib/api";
@@ -20,8 +20,10 @@ import styles from "./auth.module.css";
 
 type Status = "idle" | "sending" | "invalid" | "failed";
 
-export function LoginForm({ registered = false }: { registered?: boolean }) {
+export function LoginForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const registered = searchParams.get("registered") === "1";
   const formRef = useRef<HTMLFormElement>(null);
   const [values, setValues] = useState<LoginData>({ identifier: "", password: "" });
   const [errors, setErrors] = useState<Errors<LoginData>>({});

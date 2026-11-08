@@ -1,10 +1,13 @@
 import type { NextConfig } from "next";
 
+const repo = "black-Pearls";
+
 const nextConfig: NextConfig = {
-  images: {
-    // Serve images in modern formats with automatic resizing
-    formats: ["image/avif", "image/webp"],
-  },
+  output: "export",
+  basePath: `/${repo}`,
+  assetPrefix: `/${repo}/`,
+  images: { unoptimized: true },
+  trailingSlash: true,
 };
 
 export default nextConfig;
