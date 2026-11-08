@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { hero, routes } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -8,16 +7,18 @@ import styles from "./Hero.module.css";
 export function Hero() {
   return (
     <section id="home" className={styles.hero} data-hero>
-      {/* priority: this is the first image the visitor sees, so it loads before anything else */}
-      <Image
-        src="/images/hero.webp"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
+      <video
         className={styles.bg}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
         data-hero-bg
-      />
+      >
+        <source src="/AGENCE/hero-page.mp4" type="video/mp4" />
+      </video>
 
       <div className={`container ${styles.inner}`}>
         <div className={styles.content} data-hero-content>
