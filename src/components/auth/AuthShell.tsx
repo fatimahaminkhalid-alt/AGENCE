@@ -21,8 +21,8 @@ type Props = {
 };
 
 const panelImages = {
-  beneficiaries: { src: "/black-Pearls/images/صورة المستفيد.jpg", alt: "صورة توضيحية للمستفيدين من منصة AGENCE" },
-  providers: { src: "/black-Pearls/images/صورة مقدم الخدمة.jpg", alt: "صورة توضيحية لمقدمي الخدمات على منصة AGENCE" },
+  beneficiaries: { src: "/AGENCE/images/صورة المستفيد.jpg", alt: "صورة توضيحية للمستفيدين من منصة AGENCE" },
+  providers: { src: "/AGENCE/images/صورة مقدم الخدمة.jpg", alt: "صورة توضيحية لمقدمي الخدمات على منصة AGENCE" },
 };
 
 export function AuthShell({ children, panel }: Props) {
@@ -32,7 +32,7 @@ export function AuthShell({ children, panel }: Props) {
       <div className={styles.main}>
         <header className={styles.top}>
           <Link href={routes.home} className={styles.logo} aria-label="الصفحة الرئيسية">
-            <Image src="/black-Pearls/images/logo.webp" alt="أيجنس" width={46} height={69} priority />
+            <Image src="/AGENCE/images/logo.webp" alt="أيجنس" width={46} height={69} priority />
           </Link>
           <Link href={routes.home} className={styles.back}>
             <Icon name="arrowRight" />

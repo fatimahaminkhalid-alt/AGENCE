@@ -5,7 +5,7 @@ import styles from "./AccountTypeChoice.module.css";
 
 const options = [
   {
-    image: { src: "/black-Pearls/images/صورة المستفيد.jpg", alt: "صورة توضيحية للمستفيدين من منصة AGENCE" },
+    image: { src: "/AGENCE/images/صورة المستفيد.jpg", alt: "صورة توضيحية للمستفيدين من منصة AGENCE" },
     title: "أبحث عن خدمة إعلامية",
     text: "أنشئ طلباتك، استقبل العروض، وقارن بين مقدمي الخدمات.",
     cta: "إنشاء حساب مستفيد",
@@ -13,7 +13,7 @@ const options = [
     primary: true,
   },
   {
-    image: { src: "/black-Pearls/images/صورة مقدم الخدمة.jpg", alt: "صورة توضيحية لمقدمي الخدمات على منصة AGENCE" },
+    image: { src: "/AGENCE/images/صورة مقدم الخدمة.jpg", alt: "صورة توضيحية لمقدمي الخدمات على منصة AGENCE" },
     title: "أقدم خدمات إعلامية",
     text: "اعرض خدماتك وأعمالك، واكتشف المشروعات المناسبة لتخصصك.",
     cta: "إنشاء حساب مقدم خدمة",

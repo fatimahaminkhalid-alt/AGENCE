@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const repo = "black-Pearls";
+const repo = "AGENCE";
 
 const nextConfig: NextConfig = {
   output: "export",

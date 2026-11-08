@@ -15,7 +15,7 @@ export function Hero() {
         preload="metadata"
         aria-hidden="true"
       >
-        <source src="/black-Pearls/hero page.mp4" type="video/mp4" />
+        <source src="/AGENCE/hero page.mp4" type="video/mp4" />
       </video>
 
       <div className={`container ${styles.inner}`}>
