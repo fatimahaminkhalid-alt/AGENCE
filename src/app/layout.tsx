@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Rubik, Montserrat } from "next/font/google";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { PageSwitcher } from "@/components/dev/PageSwitcher";
 import "./globals.css";
 
 /**
@@ -55,6 +56,13 @@ if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)ret
 d.classList.add('js-motion');
 setTimeout(function(){if(!d.classList.contains('motion-ready'))d.classList.remove('js-motion')},3000);})();`;
 
+/**
+ * Temporary pages menu: shows automatically during development (npm run dev),
+ * and on a deployed site only if you add NEXT_PUBLIC_SHOW_PAGE_MENU=true to the settings.
+ */
+const showPageSwitcher =
+  process.env.NODE_ENV === "development" || process.env.NEXT_PUBLIC_SHOW_PAGE_MENU === "true";
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     // suppressHydrationWarning: because the script above changes the html classes before React loads
@@ -65,6 +73,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <SmoothScroll />
         {children}
+        {showPageSwitcher && <PageSwitcher />}
       </body>
     </html>
   );
