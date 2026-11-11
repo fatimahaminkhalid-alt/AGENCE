@@ -14,6 +14,7 @@ export const routes = {
   registerClient: "/register/client",
   registerProvider: "/register/provider",
   dashboardClient: "/dashboard/client",
+  dashboardProvider: "/dashboard/provider",
   privacy: "/privacy",
   terms: "/terms",
 } as const;

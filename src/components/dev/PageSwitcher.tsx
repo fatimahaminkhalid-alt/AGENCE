@@ -44,6 +44,13 @@ const groups: { title: string; links: PageLink[] }[] = [
       { href: routes.forgotPassword, label: "استعادة كلمة المرور" },
     ],
   },
+  {
+    title: "معاينة لوحات التحكم (دخول مؤقت)",
+    links: [
+      { href: routes.dashboardClient, label: "لوحة المستفيد", note: "دخول مباشر" },
+      { href: routes.dashboardProvider, label: "لوحة مقدم الخدمة", note: "دخول مباشر" },
+    ],
+  },
 ];
 
 const DEMO = { email: "demo@agence.sa", password: "Agence123" };
