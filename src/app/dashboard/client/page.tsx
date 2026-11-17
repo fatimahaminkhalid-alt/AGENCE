@@ -4,7 +4,7 @@ import RequestCard from "@/components/dashboard/RequestCard";
 import { requests } from "@/lib/requests";
 import styles from "./layout.module.css";
 
-export const metadata = { title: "لوحة التحكم | AGENCE" };
+export const metadata = { title: "لوحة التحكم | ايجنس" };
 
 export default function ClientDashboardPage() {
   const user = { name: "نورة", hasUnreadNotifications: true };

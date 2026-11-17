@@ -66,7 +66,7 @@ export function LoginForm() {
   return (
     <>
       <h1 className={styles.heading}>مرحبًا بعودتك</h1>
-      <p className={styles.sub}>سجّل الدخول إلى حسابك في AGENCE.</p>
+      <p className={styles.sub}>سجّل الدخول إلى حسابك في ايجنس.</p>
 
       <form ref={formRef} className={styles.form} onSubmit={handleSubmit} noValidate>
         {registered && status === "idle" && (

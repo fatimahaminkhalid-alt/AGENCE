@@ -19,7 +19,7 @@ export function Cta() {
           ))}
 
           <h2 className={styles.title} data-reveal>
-            ابدأ مع <span className="latin">AGENCE</span>
+            ابدأ مع ايجنس
           </h2>
           <p data-reveal>سواء كنت تبحث عن خدمة إعلامية أو ترغب في تقديم خدماتك، اختر مسارك وابدأ من مكان واحد.</p>
           <div className={styles.actions} data-reveal>

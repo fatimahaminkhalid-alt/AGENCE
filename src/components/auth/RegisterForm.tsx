@@ -135,7 +135,7 @@ export function RegisterForm({ accountType }: { accountType: AccountType }) {
           type="email"
           dir="ltr"
           autoComplete="email"
-          placeholder="name@example.com"
+          placeholder="أدخل بريدك الإلكتروني"
           value={values.email}
           onChange={(e) => update("email", e.target.value)}
           error={errors.email}

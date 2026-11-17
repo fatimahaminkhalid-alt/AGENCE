@@ -9,7 +9,7 @@ export function HowItWorks() {
   return (
     <section id="how" className="section section--tint">
       <div className="container">
-        <Eyebrow star>كيف تعمل AGENCE؟</Eyebrow>
+        <Eyebrow star>كيف تعمل ايجنس؟</Eyebrow>
         <h2 className={`title-lg ${styles.heading}`}>
           <SplitWords text="اختر مسارك وابدأ بخطوات واضحة" />
         </h2>

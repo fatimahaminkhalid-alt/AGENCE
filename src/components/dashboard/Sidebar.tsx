@@ -42,8 +42,8 @@ export default function Sidebar() {
 
   return (
     <aside className={styles.sidebar}>
-      <Link href="/" className={styles.logo} aria-label="AGENCE — الرئيسية">
-        <Image src="/AGENCE/images/logo.webp" alt="أيجنس" width={48} height={72} priority />
+      <Link href="/" className={styles.logo} aria-label="ايجنس — الرئيسية">
+        <Image src="/AGENCE/images/logo.webp" alt="ايجنس" width={48} height={72} priority />
       </Link>
 
       <nav aria-label="القائمة الرئيسية" className={styles.nav}>

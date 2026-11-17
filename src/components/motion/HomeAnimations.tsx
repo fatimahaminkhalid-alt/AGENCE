@@ -222,16 +222,15 @@ function ctaGrow() {
 }
 
 /* =========================================================
-   8. The large "AGENCE" word in the footer: letters rise one after another (English, so splitting by letter is fine)
+   8. The large Arabic brand name in the footer
    ========================================================= */
 function footerWordmark() {
-  const letters = gsap.utils.toArray<HTMLElement>("[data-wordmark] span");
-  if (!letters.length) return;
-  gsap.from(letters, {
+  const wordmark = document.querySelector<HTMLElement>("[data-wordmark]");
+  if (!wordmark) return;
+  gsap.from(wordmark, {
     yPercent: 100,
     duration: 1.2,
     ease: "power4.out",
-    stagger: 0.06,
     scrollTrigger: { trigger: "[data-wordmark]", start: "top 98%", once: true },
   });
 }

@@ -92,7 +92,7 @@ export function ContactForm() {
       {status === "success" && (
         <div className={`${styles.alert} ${styles.success}`} role="status">
           <Icon name="checkCircle" />
-          تم استلام رسالتك بنجاح. سيتواصل معك فريق AGENCE عبر بيانات التواصل المسجلة.
+          تم استلام رسالتك بنجاح. سيتواصل معك فريق ايجنس عبر بيانات التواصل المسجلة.
         </div>
       )}
       {status === "error" && (
@@ -110,7 +110,7 @@ export function ContactForm() {
 
       <div className={wrap("email")}>
         <label htmlFor="email">البريد الإلكتروني</label>
-        <input type="email" autoComplete="email" dir="ltr" placeholder="name@example.com" {...field("email")} />
+        <input type="email" autoComplete="email" dir="ltr" placeholder="أدخل بريدك الإلكتروني" {...field("email")} />
         {errorText("email")}
       </div>
 

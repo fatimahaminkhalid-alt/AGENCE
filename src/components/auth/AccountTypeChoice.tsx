@@ -5,7 +5,7 @@ import styles from "./AccountTypeChoice.module.css";
 
 const options = [
   {
-    image: { src: "/AGENCE/images/صورة المستفيد.jpg", alt: "صورة توضيحية للمستفيدين من منصة AGENCE" },
+    image: { src: "/AGENCE/images/صورة المستفيد.jpg", alt: "صورة توضيحية للمستفيدين من منصة ايجنس" },
     title: "أبحث عن خدمة إعلامية",
     text: "أنشئ طلباتك، استقبل العروض، وقارن بين مقدمي الخدمات.",
     cta: "إنشاء حساب مستفيد",
@@ -13,7 +13,7 @@ const options = [
     primary: true,
   },
   {
-    image: { src: "/AGENCE/images/صورة مقدم الخدمة.jpg", alt: "صورة توضيحية لمقدمي الخدمات على منصة AGENCE" },
+    image: { src: "/AGENCE/images/صورة مقدم الخدمة.jpg", alt: "صورة توضيحية لمقدمي الخدمات على منصة ايجنس" },
     title: "أقدم خدمات إعلامية",
     text: "اعرض خدماتك وأعمالك، واكتشف المشروعات المناسبة لتخصصك.",
     cta: "إنشاء حساب مقدم خدمة",
@@ -26,7 +26,7 @@ export function AccountTypeChoice() {
   return (
     <div className={styles.wrap}>
       <h1 className={styles.title}>
-        كيف ترغب في استخدام <span className="latin">AGENCE</span>؟
+        كيف ترغب في استخدام ايجنس؟
       </h1>
       <p className={styles.sub}>اختر نوع الحساب المناسب لك لإكمال التسجيل.</p>
 

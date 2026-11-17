@@ -141,9 +141,7 @@ export function PageSwitcher() {
             </div>
           </div>
 
-          <p className={styles.hint}>
-            الاختصار: <kbd>Alt</kbd> + <kbd>P</kbd>
-          </p>
+          <p className={styles.hint}>يمكنك التنقل بين الصفحات مباشرة من هذه القائمة.</p>
         </div>
       )}
 

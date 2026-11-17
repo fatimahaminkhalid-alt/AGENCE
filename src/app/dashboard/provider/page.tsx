@@ -4,7 +4,7 @@ import OpportunityCard from "@/components/dashboard/OpportunityCard";
 import { opportunities } from "@/lib/opportunities";
 import styles from "./layout.module.css";
 
-export const metadata = { title: "لوحة التحكم | AGENCE" };
+export const metadata = { title: "لوحة التحكم | ايجنس" };
 
 export default function ProviderDashboardPage() {
   const user = { name: "خالد", hasUnreadNotifications: true, profileComplete: false };

@@ -53,7 +53,7 @@ export async function POST(request: Request) {
         from,
         to,
         reply_to: data.email,
-        subject: `[AGENCE] ${typeLabel}: ${data.subject || "رسالة جديدة"}`,
+        subject: `[ايجنس] ${typeLabel}: ${data.subject || "رسالة جديدة"}`,
         text: [
           `الاسم: ${data.fullName}`,
           `البريد: ${data.email}`,

@@ -39,13 +39,13 @@ export function SocialButtons() {
   return (
     <>
       <div className={styles.social}>
-        <button type="button" className={styles.socialBtn} onClick={() => setNotice("Google")}>
+        <button type="button" className={styles.socialBtn} onClick={() => setNotice("جوجل")}>
           <GoogleIcon />
-          المتابعة باستخدام Google
+          المتابعة باستخدام جوجل
         </button>
-        <button type="button" className={`${styles.socialBtn} ${styles.apple}`} onClick={() => setNotice("Apple")}>
+        <button type="button" className={`${styles.socialBtn} ${styles.apple}`} onClick={() => setNotice("آبل")}>
           <AppleIcon />
-          المتابعة باستخدام Apple
+          المتابعة باستخدام آبل
         </button>
       </div>
 

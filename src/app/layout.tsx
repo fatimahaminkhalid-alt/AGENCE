@@ -28,15 +28,15 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL("https://agence.sa"), // change it to your real domain
   title: {
-    default: "AGENCE | كل ما يحتاجه مشروعك الإعلامي في مكان واحد",
-    template: "%s | AGENCE",
+    default: "ايجنس | كل ما يحتاجه مشروعك الإعلامي في مكان واحد",
+    template: "%s | ايجنس",
   },
   description:
-    "AGENCE منصة سعودية تربط المستفيدين من الخدمات الإعلامية بالوكالات والمستقلين المتخصصين. أنشئ طلبك، استقبل العروض، وقارن بينها لاختيار مقدم الخدمة المناسب لمشروعك.",
+    "ايجنس منصة سعودية تربط المستفيدين من الخدمات الإعلامية بالوكالات والمستقلين المتخصصين. أنشئ طلبك، استقبل العروض، وقارن بينها لاختيار مقدم الخدمة المناسب لمشروعك.",
   openGraph: {
     type: "website",
     locale: "ar_SA",
-    siteName: "AGENCE",
+    siteName: "ايجنس",
     images: [{ url: "/images/hero.webp", width: 1280, height: 720 }],
   },
 };

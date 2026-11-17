@@ -12,7 +12,7 @@ export function Footer() {
         <div className={styles.grid} data-stagger>
           <div className={styles.about}>
             <Logo size="lg" />
-            <p>AGENCE منصة سعودية تربط المستفيدين من الخدمات الإعلامية بالوكالات والمستقلين المتخصصين.</p>
+            <p>ايجنس منصة سعودية تربط المستفيدين من الخدمات الإعلامية بالوكالات والمستقلين المتخصصين.</p>
           </div>
 
           {footerColumns.map((col) => (
@@ -29,14 +29,11 @@ export function Footer() {
           ))}
         </div>
 
-        <p className={styles.copy}>جميع الحقوق محفوظة لـ AGENCE © {year}</p>
+        <p className={styles.copy}>جميع الحقوق محفوظة لـ ايجنس © {year}</p>
       </div>
 
-      {/* Each letter in its own element so they rise one after another (fine because the word is English) */}
       <div className={styles.wordmark} aria-hidden="true" data-wordmark>
-        {"AGENCE".split("").map((letter, i) => (
-          <span key={i}>{letter}</span>
-        ))}
+        ايجنس
       </div>
     </footer>
   );

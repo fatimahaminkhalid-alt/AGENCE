@@ -48,23 +48,19 @@
   font-size: 0.9375rem;
 }
 
-/* The large "AGENCE" word at the bottom of the page */
 .wordmark {
-  font-family: var(--font-latin);
+  font-family: var(--font-rubik);
   font-weight: 800;
   font-size: clamp(5rem, 21vw, 19rem);
   line-height: 0.72;
   letter-spacing: 0.02em;
   text-align: center;
   color: var(--c-wordmark);
-  direction: ltr;
+  direction: rtl;
   margin-top: 40px;
-  height: 0.6em; /* clips the bottom of the letters as in the design */
+  height: 0.85em;
   overflow: hidden;
   user-select: none;
-}
-.wordmark span {
-  display: inline-block;
 }
 
 @media (max-width: 1024px) {
