@@ -91,7 +91,7 @@ export function Header() {
             </Button>
             <Button href={routes.registerProvider} variant="accent" size="sm">
               سجّل كمقدم خدمة
-              <Icon name="burst" />
+              <Icon name="arrowLeft" />
             </Button>
           </div>
         </nav>

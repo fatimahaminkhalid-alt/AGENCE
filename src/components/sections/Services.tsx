@@ -34,6 +34,7 @@ export function Services() {
                 {service.items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
+                <li className={styles.more}>وأكثر</li>
               </ul>
             </article>
           ))}

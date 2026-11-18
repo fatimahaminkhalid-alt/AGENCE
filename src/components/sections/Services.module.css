@@ -16,7 +16,7 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
-  margin-bottom: 56px;
+  margin-bottom: 88px; /* was 56px: the space between the cards and the button */
 }
 
 .card {
@@ -96,4 +96,12 @@
   .grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* The "وأكثر" chip: blue text with a dashed border, so it reads as a hint and not as a service */
+.chips li.more {
+  color: var(--c-primary);
+  border-style: dashed;
+  border-color: rgba(37, 5, 237, 0.35);
+  font-weight: 500;
 }
