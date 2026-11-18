@@ -33,7 +33,7 @@ export function Footer() {
       </div>
 
       <div className={styles.wordmark} aria-hidden="true" data-wordmark>
-        ايجنس
+        <span>أيجنس</span>
       </div>
     </footer>
   );

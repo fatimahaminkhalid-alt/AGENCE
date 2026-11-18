@@ -67,6 +67,10 @@
   user-select: none;
 }
 
+.wordmark span {
+  display: inline-block;
+}
+
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));

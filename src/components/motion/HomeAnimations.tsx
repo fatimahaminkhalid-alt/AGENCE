@@ -226,12 +226,14 @@ function ctaGrow() {
    ========================================================= */
 function footerWordmark() {
   const wordmark = document.querySelector<HTMLElement>("[data-wordmark]");
-  if (!wordmark) return;
-  gsap.from(wordmark, {
+  const word = wordmark?.querySelector("span");
+  if (!wordmark || !word) return;
+  // Move the word inside its clipping frame so the frame remains the animation trigger.
+  gsap.from(word, {
     yPercent: 100,
     duration: 1.2,
     ease: "power4.out",
-    scrollTrigger: { trigger: "[data-wordmark]", start: "top 98%", once: true },
+    scrollTrigger: { trigger: wordmark, start: "top bottom", once: true },
   });
 }
 
