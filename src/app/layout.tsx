@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Rubik, Montserrat } from "next/font/google";
+import { Rubik, Montserrat, Alexandria } from "next/font/google";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { PageSwitcher } from "@/components/dev/PageSwitcher";
 import "./globals.css";
@@ -15,6 +15,14 @@ const rubik = Rubik({
   subsets: ["arabic", "latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-rubik",
+  display: "swap",
+});
+
+// Alexandria Black: the font of the large "أيجنس" word in the footer (from Figma)
+const alexandria = Alexandria({
+  subsets: ["arabic", "latin"],
+  weight: ["900"],
+  variable: "--font-alexandria",
   display: "swap",
 });
 
@@ -66,7 +74,7 @@ const showPageSwitcher =
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     // suppressHydrationWarning: because the script above changes the html classes before React loads
-    <html lang="ar" dir="rtl" className={`${rubik.variable} ${montserrat.variable}`} suppressHydrationWarning>
+    <html lang="ar" dir="rtl" className={`${rubik.variable} ${montserrat.variable} ${alexandria.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: motionScript }} />
       </head>
