@@ -48,17 +48,21 @@
   font-size: 0.9375rem;
 }
 
+/* The large "أيجنس" word: values from Figma (frame "Wordmark crop")
+   Desktop: font 200px, visible area 200px tall, and the word starts 28px from the top.
+   Everything is in em units so the proportion stays the same on every screen size. */
 .wordmark {
-  font-family: var(--font-rubik);
-  font-weight: 800;
-  font-size: clamp(5rem, 21vw, 19rem);
-  line-height: 0.72;
-  letter-spacing: 0.02em;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 13.9vw, 200px); /* 200px on a 1440 screen, and shrinks on smaller screens */
+  line-height: 1.22; /* Alexandria's natural line height (244px for a 200px font) */
+  padding-top: 0.14em; /* 28px: where the word starts from the top */
+  height: 1em; /* 200px: the visible area, and anything below it is clipped */
+  margin-top: 16px;
+  letter-spacing: 0; /* letter spacing breaks the joining of Arabic letters */
   text-align: center;
   color: var(--c-wordmark);
   direction: rtl;
-  margin-top: 40px;
-  height: 0.85em;
   overflow: hidden;
   user-select: none;
 }

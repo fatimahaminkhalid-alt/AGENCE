@@ -22,11 +22,12 @@
   --c-error-bg: #fdecec;
   --c-success: #12854a;
   --c-success-bg: #e8f6ee;
-  --c-wordmark: #e6dedd;
+  --c-wordmark: #e5dcdc;   /* was #e6dedd: the exact color from Figma */
 
   /* Fonts: the variables come from next/font in layout.tsx */
   --font-ar: var(--font-rubik), "Segoe UI", Tahoma, sans-serif;
   --font-latin: var(--font-montserrat), var(--font-rubik), sans-serif;
+  --font-display: var(--font-alexandria), var(--font-rubik), sans-serif;
 
   /* Type scale */
   --fs-hero: clamp(2.25rem, 1.4rem + 3.6vw, 4rem);
