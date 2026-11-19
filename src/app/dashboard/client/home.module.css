@@ -6,7 +6,7 @@
   justify-content: space-between;
   gap: 40px;
   padding-block: 24px;
-  padding-inline: 40px 24px; /* 40 on the text side (right) and 24 on the image side (left) */
+  padding-inline: 40px;
 }
 
 .welcomeText {
@@ -30,26 +30,10 @@
   margin-bottom: 8px;
 }
 
-/* Illustration: 280 × 176, radius 16 */
-.welcomeImg {
-  flex: none;
-  width: 280px;
-  height: 176px;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
 @media (max-width: 760px) {
   .welcome {
-    flex-direction: column-reverse;
     align-items: stretch;
-    gap: 20px;
     padding: 20px;
-  }
-  .welcomeImg {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 280 / 176;
   }
   .welcomeTitle {
     font-size: 26px;
