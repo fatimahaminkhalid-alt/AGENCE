@@ -8,7 +8,6 @@
  * (e.g. /dashboard/provider?empty=1). This is for development only and has no effect for real users.
  */
 
-import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { UserCheck } from "lucide-react";
@@ -25,7 +24,6 @@ export default function ProviderHomeFeed({ opportunities }: { opportunities: Opp
   if (list.length === 0) {
     return (
       <section className={`${ui.card} ${styles.empty}`}>
-        <Image src="/AGENCE/images/dashboard-provider.webp" alt="" width={276} height={174} className={styles.emptyImg} />
         <h2 className={styles.emptyTitle}>فرصتك الأولى بانتظارك</h2>
         <p className={styles.emptyText}>استكشف طلبات الخدمات التي تناسب تخصصك، وقدّم عرضك للمشروعات المناسبة.</p>
         <Link href="/dashboard/provider/opportunities" className={`${ui.btn} ${ui.btnPrimary}`}>

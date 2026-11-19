@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Topbar from "@/components/dashboard/Topbar";
 import ProviderHomeFeed from "@/components/dashboard/ProviderHomeFeed";
 import { suggestedOpportunities } from "@/lib/opportunities";
@@ -25,15 +24,6 @@ export default function ProviderDashboardPage() {
             استكشف الفرص
           </Link>
         </div>
-        {/* basePath (/AGENCE) is written by hand, as in the rest of the project, because images on GitHub Pages need it */}
-        <Image
-          src="/AGENCE/images/dashboard-provider.webp"
-          alt=""
-          width={280}
-          height={176}
-          className={styles.welcomeImg}
-          priority
-        />
       </section>
 
       {/* "أكمل ملفك" banner + suggested opportunities, or the empty state.
