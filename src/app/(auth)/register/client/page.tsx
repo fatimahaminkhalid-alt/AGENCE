@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function RegisterClientPage() {
   return (
-    <AuthShell panel="beneficiaries">
+    <AuthShell>
       <RegisterForm accountType="client" />
     </AuthShell>
   );
