@@ -1,0 +1,106 @@
+/* Two columns: questions (right) and the contact card (left, 340px) */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ---------- Questions ---------- */
+.faq {
+  padding: 12px 28px;
+}
+.item + .item {
+  border-top: 1px solid var(--border);
+}
+.q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  cursor: pointer;
+  list-style: none; /* hides the browser's default triangle */
+}
+.q::-webkit-details-marker {
+  display: none;
+}
+.q:hover {
+  color: var(--primary);
+}
+.chevron {
+  flex: none;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+}
+/* Open question: blue text and the arrow points up */
+.item[open] .q {
+  color: var(--primary);
+}
+.item[open] .chevron {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+.a {
+  padding-bottom: 20px;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--text-muted);
+}
+
+/* ---------- Contact card ---------- */
+.contact {
+  display: grid;
+  gap: 20px;
+  padding: 28px;
+}
+.contactText {
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--text-muted);
+}
+.channels {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.channels li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.channelIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.channels small {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.channels strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .faq {
+    padding: 4px 20px;
+  }
+}

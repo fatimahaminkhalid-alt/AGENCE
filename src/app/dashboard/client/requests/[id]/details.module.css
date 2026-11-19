@@ -1,0 +1,63 @@
+.sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 15px;
+}
+
+/* "عن الطلب" card */
+.about {
+  display: grid;
+  gap: 16px;
+}
+.description {
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--text-muted);
+}
+
+/* The 4 info boxes: budget, duration, publish date, deadline */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 8px 0 0;
+}
+.stat {
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--bg);
+}
+.stat dt {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--text-muted);
+}
+.stat dd {
+  margin: 4px 0 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--text);
+}
+
+.offers {
+  display: grid;
+  gap: 16px;
+}
+.offers > :first-child {
+  margin-bottom: 16px;
+}
+
+.noOffers {
+  padding: 24px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
