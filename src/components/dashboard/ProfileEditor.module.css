@@ -1,0 +1,154 @@
+.stack {
+  display: grid;
+  gap: 32px;
+}
+.card {
+  display: grid;
+  gap: 24px;
+  padding: 28px 32px;
+  border-radius: 24px;
+}
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 34px;
+}
+
+.previewNote {
+  background: var(--primary-soft);
+  color: var(--primary);
+  margin-top: -16px;
+}
+
+/* ---------- Profile card ---------- */
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+}
+.headline {
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text-muted);
+}
+
+/* Completion box: light orange background */
+.completion {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(233, 109, 7, 0.06);
+}
+.completionHead {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 500;
+}
+.percent {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 14px;
+}
+.completionHint {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-muted);
+}
+
+/* ---------- Specialties ---------- */
+.tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 40px;
+  padding-block: 6px;
+  padding-inline: 16px 8px; /* more space on the text side */
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 500;
+}
+.tagRemove {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  opacity: 0.55;
+  cursor: pointer;
+}
+.tagRemove:hover {
+  opacity: 1;
+  background: rgba(37, 5, 237, 0.1);
+}
+/* "أضف تخصصًا": dashed border */
+.addTag,
+.picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 6px 16px;
+  border: 1px dashed var(--primary);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.addTag svg {
+  color: var(--primary);
+}
+.addTag:hover {
+  background: var(--primary-soft);
+}
+.addTag:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Save button on the left */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.saved {
+  color: var(--success);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 20px;
+  }
+  .name {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}

@@ -1,0 +1,97 @@
+/* ---------- "أكمل ملفك المهني" banner (from Figma: orange background, radius 20, padding 20 24) ---------- */
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1px solid rgba(233, 109, 7, 0.35);
+  border-radius: 20px;
+  background: rgba(233, 109, 7, 0.08);
+}
+.bannerIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+}
+.bannerText {
+  flex: 1;
+  min-width: 0;
+}
+.bannerTitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+}
+.bannerSub {
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text-muted);
+}
+.bannerBtn {
+  flex: none;
+}
+
+/* ---------- Opportunities: two columns, gap 32 ---------- */
+.section {
+  display: grid;
+  gap: 32px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+/* ---------- Empty state: "فرصتك الأولى بانتظارك" ---------- */
+.empty {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding: 36px 24px 44px;
+}
+.emptyImg {
+  width: min(276px, 100%);
+  height: auto;
+  aspect-ratio: 276 / 174;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 32px;
+}
+.emptyTitle {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 40px;
+  margin-bottom: 12px;
+}
+.emptyText {
+  max-width: 420px;
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 32px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+@media (max-width: 760px) {
+  .banner {
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  .bannerText {
+    flex-basis: calc(100% - 64px);
+  }
+  .bannerBtn {
+    width: 100%;
+  }
+}

@@ -25,7 +25,9 @@ const groups = [
   { key: "week", title: "هذا الأسبوع" },
 ] as const;
 
-export default function NotificationsList({ notifications }: { notifications: AppNotification[] }) {
+type Props = { notifications: AppNotification[]; subtitle?: string };
+
+export default function NotificationsList({ notifications, subtitle = "آخر المستجدات على طلباتك وعروضك." }: Props) {
   const [list, setList] = useState(notifications);
   const unreadCount = list.filter((n) => n.unread).length;
 
@@ -36,7 +38,7 @@ export default function NotificationsList({ notifications }: { notifications: Ap
     <>
       <PageHeader
         title="الإشعارات"
-        subtitle="آخر المستجدات على طلباتك وعروضك."
+        subtitle={subtitle}
         action={
           <button type="button" className={ui.linkBtn} onClick={markAll} disabled={unreadCount === 0}>
             تحديد الكل كمقروء

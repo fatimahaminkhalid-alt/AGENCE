@@ -22,9 +22,21 @@ function useSaved() {
   return [saved, flash] as const;
 }
 
+/* The account owner's data and notification preferences: they differ between the beneficiary and the service provider */
+export type Pref = { key: string; title: string; desc: string; on: boolean };
+export type Account = { fullName: string; email: string };
+
+const CLIENT_ACCOUNT: Account = { fullName: "نورة السبيعي", email: "nora@example.com" };
+
+const CLIENT_PREFS: Pref[] = [
+  { key: "offers", title: "العروض الجديدة", desc: "تنبيه عند وصول عرض جديد على طلباتك.", on: true },
+  { key: "messages", title: "الرسائل", desc: "تنبيه عند وصول رسالة من مقدم خدمة.", on: true },
+  { key: "newsletter", title: "النشرة البريدية", desc: "أخبار المنصة ونصائح لمشاريعك الإعلامية.", on: false },
+];
+
 /* ---------- Personal information ---------- */
-function ProfileCard() {
-  const [v, setV] = useState({ fullName: "نورة السبيعي", email: "nora@example.com", phone: "", org: "" });
+function ProfileCard({ account }: { account: Account }) {
+  const [v, setV] = useState({ ...account, phone: "", org: "" });
   const [errors, setErrors] = useState<Errors>({});
   const [saved, flash] = useSaved();
 
@@ -68,8 +80,8 @@ function ProfileCard() {
         المعلومات الشخصية
       </h2>
       <div className={ui.fieldRow}>
-        {field("fullName", "الاسم الكامل", "نورة السبيعي", "text", { autoComplete: "name" })}
-        {field("email", "البريد الإلكتروني", "nora@example.com", "email", { autoComplete: "email", dir: "ltr" })}
+        {field("fullName", "الاسم الكامل", account.fullName, "text", { autoComplete: "name" })}
+        {field("email", "البريد الإلكتروني", account.email, "email", { autoComplete: "email", dir: "ltr" })}
         {field("phone", "رقم الجوال", "05X XXX XXXX", "tel", { autoComplete: "tel", inputMode: "tel" })}
         {field("org", "اسم الجهة (اختياري)", "اكتب اسم الجهة أو الشركة", "text", { autoComplete: "organization" })}
       </div>
@@ -156,13 +168,7 @@ function PasswordCard() {
 }
 
 /* ---------- Notification preferences (saves immediately when changed) ---------- */
-const prefs = [
-  { key: "offers", title: "العروض الجديدة", desc: "تنبيه عند وصول عرض جديد على طلباتك.", on: true },
-  { key: "messages", title: "الرسائل", desc: "تنبيه عند وصول رسالة من مقدم خدمة.", on: true },
-  { key: "newsletter", title: "النشرة البريدية", desc: "أخبار المنصة ونصائح لمشاريعك الإعلامية.", on: false },
-];
-
-function PrefsCard() {
+function PrefsCard({ prefs }: { prefs: Pref[] }) {
   const [state, setState] = useState<Record<string, boolean>>(Object.fromEntries(prefs.map((p) => [p.key, p.on])));
 
   return (
@@ -197,12 +203,14 @@ function PrefsCard() {
   );
 }
 
-export default function SettingsForms() {
+type Props = { account?: Account; prefs?: Pref[] };
+
+export default function SettingsForms({ account = CLIENT_ACCOUNT, prefs = CLIENT_PREFS }: Props) {
   return (
     <div className={styles.stack}>
-      <ProfileCard />
+      <ProfileCard account={account} />
       <PasswordCard />
-      <PrefsCard />
+      <PrefsCard prefs={prefs} />
     </div>
   );
 }

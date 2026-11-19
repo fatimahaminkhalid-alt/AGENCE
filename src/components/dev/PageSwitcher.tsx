@@ -50,6 +50,8 @@ const groups: { title: string; links: PageLink[] }[] = [
       { href: routes.dashboardClient, label: "لوحة المستفيد", note: "دخول مباشر" },
       { href: `${routes.dashboardClient}?empty=1`, label: "لوحة المستفيد", note: "بدون طلبات" },
       { href: routes.dashboardProvider, label: "لوحة مقدم الخدمة", note: "دخول مباشر" },
+      { href: `${routes.dashboardProvider}?empty=1`, label: "لوحة مقدم الخدمة", note: "بدون فرص" },
+      { href: `${routes.dashboardProvider}/opportunities/2`, label: "تفاصيل فرصة", note: "مع نموذج العرض" },
     ],
   },
 ];

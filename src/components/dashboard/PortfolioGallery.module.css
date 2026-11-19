@@ -1,0 +1,70 @@
+/* Works grid: three columns (from Figma: cover 210px high, radius 20) */
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.card {
+  overflow: hidden;
+  border-radius: 20px;
+  min-width: 0;
+}
+.cover {
+  display: grid;
+  place-items: center;
+  height: 210px;
+  background-size: cover;
+  background-position: center;
+}
+/* The white circle with the work type icon */
+.play {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+}
+.body {
+  padding: 20px;
+}
+.title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 28px;
+}
+.meta {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--text-muted);
+}
+
+/* "أضف عملًا" window */
+.form {
+  display: grid;
+  gap: 20px;
+}
+.fileInput {
+  min-height: auto;
+  padding: 12px;
+  font-size: 14px;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .cover {
+    height: 180px;
+  }
+}

@@ -1,0 +1,111 @@
+/* Service cards: two columns (from Figma: radius 20, padding 24 28, gap 12) */
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 28px;
+  border-radius: 20px;
+  min-width: 0;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+/* Lavender icon square: 48 × 48, radius 12 */
+.icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+}
+.desc {
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--text-muted);
+}
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 4px;
+}
+.tiles {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  min-width: 0;
+}
+.tiles dd {
+  margin: 0;
+}
+
+/* Add/edit window */
+.form {
+  display: grid;
+  gap: 20px;
+}
+.textarea {
+  min-height: 110px;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.check input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--primary-strong);
+}
+.actions {
+  align-items: center;
+}
+.delete {
+  margin-inline-end: auto; /* pushes it to the right, away from the save button */
+  border: 0;
+  background: none;
+  padding: 4px 0;
+  color: #c0392b;
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+.delete:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .card {
+    padding: 20px;
+  }
+  .foot {
+    flex-wrap: wrap;
+  }
+}

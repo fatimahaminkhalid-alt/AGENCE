@@ -1,0 +1,110 @@
+/* "قدّم عرضك" card (from Figma: padding 28, radius 20, gap 20) */
+.card {
+  display: grid;
+  gap: 20px;
+  padding: 28px;
+  border-radius: 20px;
+  min-width: 0;
+}
+.title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+}
+.intro {
+  margin-top: -8px;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text-muted);
+}
+
+/* Attachments box: dashed lavender border */
+.drop {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 24px 16px;
+  border: 1.5px dashed rgba(37, 5, 237, 0.35);
+  border-radius: 12px;
+  background: rgba(37, 5, 237, 0.04);
+  color: var(--text);
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.drop svg {
+  color: var(--primary);
+}
+.drop:hover,
+.dragging {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+}
+
+.files {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.files li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--bg);
+  font-size: 14px;
+}
+.fileName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  unicode-bidi: plaintext;
+}
+.remove {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.remove:hover {
+  background: var(--neutral-soft);
+  color: var(--text);
+}
+
+/* After sending */
+.done {
+  justify-items: center;
+  text-align: center;
+}
+.done .intro {
+  margin-top: -8px;
+}
+.doneIcon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 20px;
+  }
+}

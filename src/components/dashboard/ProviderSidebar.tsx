@@ -25,11 +25,20 @@ const bottom = [
   { href: "/dashboard/provider/support", label: "الدعم", icon: HelpCircle },
 ];
 
+const HOME = "/dashboard/provider";
+
+/** Is the link active? "الفرص المتاحة" also stays active in the opportunities list and the opportunity details */
+function isActive(pathname: string, href: string) {
+  const path = pathname.replace(/\/$/, "") || "/"; // trailingSlash in next.config adds "/" at the end
+  if (href === HOME) return path === HOME || path.startsWith(`${HOME}/opportunities`);
+  return path === href || path.startsWith(`${href}/`);
+}
+
 export default function ProviderSidebar() {
   const pathname = usePathname();
 
   const renderItem = ({ href, label, icon: Icon }: (typeof main)[number]) => {
-    const active = pathname === href;
+    const active = isActive(pathname, href);
     return (
       <li key={href}>
         <Link

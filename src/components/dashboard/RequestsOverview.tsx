@@ -7,6 +7,7 @@
  * (e.g. /dashboard/client?empty=1). This is for development only and has no effect for real users.
  */
 
+import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import type { ServiceRequest } from "@/lib/requests";
@@ -21,6 +22,7 @@ export default function RequestsOverview({ requests }: { requests: ServiceReques
   if (list.length === 0) {
     return (
       <section className={`${ui.card} ${styles.empty}`}>
+        <Image src="/AGENCE/images/dashboard-client.webp" alt="" width={360} height={226} className={styles.emptyImg} />
         <h2 className={styles.emptyTitle}>ابدأ بطلبك الأول</h2>
         <p className={styles.emptyText}>
           حدد الخدمة التي تحتاجها وأضف تفاصيل مشروعك لاستقبال عروض مقدمي الخدمات المهتمين.

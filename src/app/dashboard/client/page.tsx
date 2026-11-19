@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Topbar from "@/components/dashboard/Topbar";
 import RequestsOverview from "@/components/dashboard/RequestsOverview";
 import { requests } from "@/lib/requests";
@@ -25,6 +26,15 @@ export default function ClientDashboardPage() {
             أنشئ طلبًا جديدًا
           </Link>
         </div>
+        {/* basePath (/AGENCE) is written by hand, as in the rest of the project, because images on GitHub Pages need it */}
+        <Image
+          src="/AGENCE/images/dashboard-client.webp"
+          alt=""
+          width={280}
+          height={176}
+          className={styles.welcomeImg}
+          priority
+        />
       </section>
 
       {/* "طلباتي" list, or the empty state. Suspense is needed because the component reads ?empty=1 from the URL */}

@@ -20,7 +20,13 @@ function nowTime() {
   return `${((h + 11) % 12) + 1}:${String(d.getMinutes()).padStart(2, "0")} ${h < 12 ? "ص" : "م"}`;
 }
 
-export default function Messenger({ conversations }: { conversations: Conversation[] }) {
+type Props = {
+  conversations: Conversation[];
+  /** The text before the request or project name under the person's name (e.g. "على طلب" or "على مشروع") */
+  contextLabel?: string;
+};
+
+export default function Messenger({ conversations, contextLabel = "على طلب" }: Props) {
   const [list, setList] = useState(conversations);
   const [activeId, setActiveId] = useState(conversations[0]?.id);
   const [query, setQuery] = useState("");
@@ -112,7 +118,9 @@ export default function Messenger({ conversations }: { conversations: Conversati
             </span>
             <div>
               <p className={styles.threadName}>{active.name}</p>
-              <p className={styles.threadReq}>على طلب: {active.requestTitle}</p>
+              <p className={styles.threadReq}>
+                {contextLabel}: {active.requestTitle}
+              </p>
             </div>
           </header>
 
