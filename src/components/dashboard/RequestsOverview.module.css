@@ -1,0 +1,39 @@
+.section {
+  display: grid;
+  gap: 32px;
+}
+
+.list {
+  display: grid;
+  gap: 16px;
+}
+
+/* Empty state: "ابدأ بطلبك الأول" */
+.empty {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding: 48px 24px;
+}
+.emptyImg {
+  width: min(360px, 100%);
+  height: auto;
+  aspect-ratio: 360 / 226;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 40px;
+}
+.emptyTitle {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 40px;
+  margin-bottom: 12px;
+}
+.emptyText {
+  max-width: 480px;
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 32px;
+  margin-bottom: 32px;
+}

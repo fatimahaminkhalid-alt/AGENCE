@@ -1,0 +1,91 @@
+/* Saved provider card grid: 3 columns on desktop */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 28px 24px 24px;
+}
+
+/* Remove button (bookmark icon) in the card's corner */
+.unsave {
+  position: absolute;
+  top: 20px;
+  inset-inline-end: 20px; /* the left corner in RTL, as in the design */
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+}
+.unsave:hover {
+  background: var(--primary-soft);
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  margin-top: 16px;
+}
+.kind {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-muted);
+}
+.city {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0 20px;
+}
+.card > a:last-child {
+  margin-top: auto;
+}
+
+.empty {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--text-muted);
+}
+.empty svg {
+  color: var(--primary);
+}
+
+@media (max-width: 1180px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

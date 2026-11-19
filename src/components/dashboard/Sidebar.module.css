@@ -1,43 +1,120 @@
+/* Sidebar (values from Figma: width 280, padding 32 20) */
+
 .sidebar {
   width: 280px;
   flex-shrink: 0;
-  padding: 32px 21px;
+  padding: 32px 20px;
   background: var(--surface);
-  border-inline-start: 1px solid var(--border);
+  border-inline-end: 1px solid var(--border); /* the line on the side facing the content (left in RTL) */
   display: flex;
   flex-direction: column;
+  gap: 32px;
   position: sticky;
   top: 0;
   height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
 }
 
-.logo { display: block; height: 72px; margin-bottom: 32px; }
-.nav ul, .bottom ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
-.nav { flex: 1; }
-.bottom { padding-top: 16px; border-top: 1px solid var(--border); }
+.logo {
+  display: block;
+  align-self: flex-start;
+  margin-inline-start: 12px;
+}
+.logo img {
+  width: 48px;
+  height: 72px;
+}
 
+.nav ul,
+.bottom ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+.nav {
+  flex: 1;
+}
+.bottom {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* Link: padding 12 16, radius 12, Cairo Medium 16 */
 .item {
-  display: flex; align-items: center; gap: 12px;
-  height: 48px; padding: 0 14px;
-  border-radius: 14px;
-  font-size: 15px; font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
   color: var(--text);
   text-decoration: none;
-  transition: background 0.15s;
+  transition: background-color 0.15s, color 0.15s;
 }
-.item:hover { background: #f5f3fb; }
-.active { background: var(--primary-soft); color: var(--primary); }
+.item svg {
+  flex: none;
+}
+.item:hover {
+  background: rgba(37, 5, 237, 0.04);
+}
+.active,
+.active:hover {
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 600;
+}
 
+/* Tablet and phone: the menu becomes a horizontal strip at the top */
 @media (max-width: 900px) {
   .sidebar {
-    width: 100%; height: auto; position: static;
-    border-inline-start: 0; border-bottom: 1px solid var(--border);
-    padding: 16px;
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 12px max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px));
+    border-inline-end: 0;
+    border-bottom: 1px solid var(--border);
+    /* The whole strip scrolls horizontally, so all the links show including settings and support */
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
   }
-  .logo { height: 56px; margin-bottom: 12px; }
-  .logo img { height: 56px; width: auto; }
-  .nav { flex: none; overflow-x: auto; }
-  .nav ul { display: flex; gap: 8px; }
-  .item { white-space: nowrap; }
-  .bottom { display: none; }
+  .sidebar::-webkit-scrollbar {
+    display: none;
+  }
+  .logo {
+    margin: 0;
+    flex: none;
+  }
+  .logo img {
+    width: 32px;
+    height: 48px;
+  }
+  .nav,
+  .bottom {
+    flex: none;
+  }
+  .nav ul,
+  .bottom ul {
+    display: flex;
+    gap: 4px;
+  }
+  .bottom {
+    padding: 0 0 0 0;
+    padding-inline-start: 8px;
+    border-top: 0;
+    border-inline-start: 1px solid var(--border);
+  }
+  .item {
+    white-space: nowrap;
+    padding: 10px 12px;
+    font-size: 15px;
+  }
 }

@@ -1,0 +1,52 @@
+.wrap {
+  display: grid;
+  gap: 32px;
+}
+
+/* Filter buttons: the active one is black, the rest white with a border */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filter {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 22px;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.filter:hover {
+  border-color: var(--text);
+}
+.active,
+.active:hover {
+  background: var(--text);
+  border-color: var(--text);
+  color: #fff;
+}
+
+.list {
+  display: grid;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  /* on phones the buttons scroll horizontally instead of wrapping onto several lines */
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-inline: -16px;
+    padding-inline: 16px;
+  }
+  .filter {
+    white-space: nowrap;
+  }
+}

@@ -28,6 +28,25 @@
   --font-ar: var(--font-rubik), "Segoe UI", Tahoma, sans-serif;
   --font-latin: var(--font-montserrat), var(--font-rubik), sans-serif;
   --font-display: var(--font-alexandria), var(--font-rubik), sans-serif;
+  --font-body: var(--font-cairo), var(--font-rubik), sans-serif;
+
+  /* ---------- Dashboard colors (from Figma: "لوحة المستفيد") ----------
+     These are the variables the dashboard files use (Sidebar, RequestCard...)
+     They weren't defined before, so the dashboard showed without backgrounds or colors */
+  --bg: #faf4f4;                         /* page background */
+  --surface: #ffffff;                    /* cards and the sidebar */
+  --border: #e5dcdc;                     /* card borders */
+  --text: #070606;                       /* headings and main text */
+  --text-muted: #5c5757;                 /* secondary text */
+  --primary: #2505ed;                    /* blue: active links and the "يستقبل عروضًا" chip */
+  --primary-strong: #1706ea;             /* button blue */
+  --primary-soft: rgba(37, 5, 237, 0.08);/* active item and icon backgrounds */
+  --primary-tint: rgba(37, 5, 237, 0.1); /* avatar circle */
+  --neutral-soft: rgba(92, 87, 87, 0.1); /* "مسودة" chip */
+  --count-soft: rgba(7, 6, 6, 0.06);     /* count chip like "3 طلبات" */
+  --success: #1f9d55;
+  --success-soft: rgba(31, 157, 85, 0.1);
+  --accent: #e96d07;                     /* orange: unread dot */
 
   /* Type scale */
   --fs-hero: clamp(2.25rem, 1.4rem + 3.6vw, 4rem);

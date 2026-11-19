@@ -1,0 +1,81 @@
+.stack {
+  display: grid;
+  gap: 32px;
+}
+
+.card {
+  display: grid;
+  gap: 24px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* the button on the left (end of the line in RTL), as in the design */
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.saved {
+  color: var(--success);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Notification preferences */
+.prefs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 24px;
+}
+.pref {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.prefTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.prefDesc {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-muted);
+}
+
+/* On/off switch: 44 × 24 */
+.switch {
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 24px;
+  border: 0;
+  border-radius: 999px;
+  background: #e2dede;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.knob {
+  position: absolute;
+  top: 3px;
+  inset-inline-end: 3px; /* off: the knob on the left (inline-end = left in RTL) */
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: inset-inline-end 0.2s;
+}
+.switch[aria-checked="true"] {
+  background: var(--primary-strong);
+}
+.switch[aria-checked="true"] .knob {
+  inset-inline-end: 23px; /* on: it moves to the right, as in the design */
+}
+.switch:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}

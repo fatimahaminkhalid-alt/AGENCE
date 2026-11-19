@@ -1,0 +1,130 @@
+.form {
+  display: grid;
+  gap: 24px;
+  padding: 32px;
+}
+
+/* Select with an arrow on the left */
+.select {
+  position: relative;
+}
+.select select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-inline-end: 48px;
+  cursor: pointer;
+}
+.chevron {
+  position: absolute;
+  inset-inline-end: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-muted);
+}
+/* An empty field shows in the placeholder color */
+.placeholder {
+  color: #b3aeae;
+}
+.select option {
+  color: var(--text);
+}
+
+/* Attachments area: a dashed lavender border */
+.drop {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 28px 16px;
+  border: 1.5px dashed rgba(37, 5, 237, 0.35);
+  border-radius: 12px;
+  background: rgba(37, 5, 237, 0.03);
+  text-align: center;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.dragging {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+}
+.dropIcon {
+  color: var(--primary);
+}
+.dropButton {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+}
+.dropButton:hover {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.dropHint {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Attached files list */
+.files {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.files li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--bg);
+  font-size: 14px;
+}
+.files li svg {
+  flex: none;
+  color: var(--primary);
+}
+.fileName {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.remove {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.remove:hover {
+  background: var(--neutral-soft);
+  color: var(--text);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .form {
+    padding: 20px;
+  }
+  .actions > * {
+    flex: 1;
+  }
+}

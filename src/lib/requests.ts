@@ -14,6 +14,11 @@ export interface ServiceRequest {
   publishedAt: string | null;
   offersCount: number;
   updatedAt: string;
+  // Request details (the "تفاصيل الطلب" page)
+  description: string;
+  budget: string;
+  duration: string;
+  deadline: string | null;
 }
 
 // بيانات تجريبية — استبدلها لاحقًا بجلب من API أو قاعدة بيانات
@@ -26,6 +31,11 @@ export const requests: ServiceRequest[] = [
     publishedAt: "12 أكتوبر 2026",
     offersCount: 5,
     updatedAt: "منذ ساعتين",
+    description:
+      "نحتاج فيديو تعريفيًا لمنتج تقني جديد، مدته بين 60 و90 ثانية، يوضح فكرة المنتج ومزاياه للجمهور في السعودية، ويُستخدم في الموقع ومنصات التواصل.",
+    budget: "15,000 ر.س",
+    duration: "3 أسابيع",
+    deadline: "30 أكتوبر 2026",
   },
   {
     id: "2",
@@ -35,6 +45,11 @@ export const requests: ServiceRequest[] = [
     publishedAt: "3 أكتوبر 2026",
     offersCount: 8,
     updatedAt: "أمس",
+    description:
+      "نخطط لإطلاق علامة تجارية جديدة ونحتاج حملة متكاملة على منصات التواصل لمدة شهر، تشمل المحتوى والتصميم وإدارة الإعلانات.",
+    budget: "12,000 ر.س",
+    duration: "شهر واحد",
+    deadline: "20 أكتوبر 2026",
   },
   {
     id: "3",
@@ -44,5 +59,11 @@ export const requests: ServiceRequest[] = [
     publishedAt: null,
     offersCount: 0,
     updatedAt: "قبل 3 أيام",
+    description: "بيان صحفي يعلن افتتاح فرعنا الجديد في جدة، مع توزيعه على الصحف والمواقع الإخبارية المحلية.",
+    budget: "3,000 ر.س",
+    duration: "أسبوع",
+    deadline: null,
   },
 ];
+
+export const getRequest = (id: string) => requests.find((r) => r.id === id);

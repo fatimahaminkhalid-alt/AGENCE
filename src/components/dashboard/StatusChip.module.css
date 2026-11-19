@@ -1,17 +1,24 @@
+/* Request status chip (values from Figma: padding 4 12, Cairo SemiBold 13) */
+
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  height: 28px;
-  padding: 0 12px;
+  padding: 4px 12px;
   border-radius: 999px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
+  line-height: 20px;
   white-space: nowrap;
 }
-.dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
 
-.draft     { background: var(--neutral-soft); color: #55555f; }
+.draft     { background: var(--neutral-soft); color: var(--text-muted); }
 .published { background: var(--primary-soft); color: var(--primary); }
 .receiving { background: var(--primary); color: #fff; }
 .selected  { background: var(--success-soft); color: var(--success); }

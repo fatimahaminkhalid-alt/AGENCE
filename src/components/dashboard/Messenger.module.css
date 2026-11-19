@@ -1,0 +1,272 @@
+/* Messages box: list (340px on the right) + conversation */
+.box {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  height: 640px;
+  overflow: hidden;
+}
+
+/* ---------- Conversation list ---------- */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-inline-end: 1px solid var(--border);
+  min-height: 0;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text-muted);
+}
+.search input {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 15px;
+  color: var(--text);
+  outline: none;
+}
+.search:focus-within {
+  box-shadow: 0 0 0 2px rgba(37, 5, 237, 0.25);
+}
+
+.convos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+  overflow-y: auto;
+  align-content: start;
+}
+.convo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  font: inherit;
+  text-align: start;
+  color: inherit;
+  cursor: pointer;
+}
+.convo:hover {
+  background: rgba(37, 5, 237, 0.04);
+}
+.convoActive,
+.convoActive:hover {
+  background: var(--primary-soft);
+}
+.convoText {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+}
+.convoName {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 24px;
+}
+.convoLast {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.convoMeta {
+  display: grid;
+  justify-items: end;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.unread {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.noResults {
+  padding: 16px;
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ---------- Conversation ---------- */
+.thread {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+}
+.threadHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.threadName {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+.threadReq {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.back {
+  display: none;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: var(--bg);
+}
+.msg {
+  display: grid;
+  gap: 6px;
+  max-width: min(480px, 85%);
+}
+/* Their message: white on the right (start of the line in RTL) */
+.theirs {
+  align-self: flex-start;
+}
+/* My message: blue on the left */
+.mine {
+  align-self: flex-end;
+}
+.bubble {
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 15px;
+  line-height: 26px;
+  overflow-wrap: anywhere;
+}
+.theirs .bubble {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.mine .bubble {
+  background: var(--primary-strong);
+  color: #fff;
+}
+.time {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.mine .time {
+  justify-self: end;
+}
+
+/* Typing bar */
+.composer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+}
+.attach {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.attach:hover {
+  background: var(--bg);
+}
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  font: inherit;
+  font-size: 15px;
+  color: var(--text);
+}
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+.send {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--primary-strong);
+  color: #fff;
+  cursor: pointer;
+  transform: scaleX(-1); /* flip the send arrow to point toward the reading direction in RTL */
+}
+.send:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* ---------- Phone: one screen at a time ---------- */
+@media (max-width: 760px) {
+  .box {
+    grid-template-columns: 1fr;
+    height: min(640px, calc(100dvh - 220px));
+  }
+  .thread {
+    display: none;
+  }
+  .showThread .sidebar {
+    display: none;
+  }
+  .showThread .thread {
+    display: flex;
+  }
+  .back {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .messages,
+  .composer,
+  .threadHead {
+    padding-inline: 16px;
+  }
+}

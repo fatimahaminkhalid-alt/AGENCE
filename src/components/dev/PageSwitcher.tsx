@@ -48,6 +48,7 @@ const groups: { title: string; links: PageLink[] }[] = [
     title: "معاينة لوحات التحكم (دخول مؤقت)",
     links: [
       { href: routes.dashboardClient, label: "لوحة المستفيد", note: "دخول مباشر" },
+      { href: `${routes.dashboardClient}?empty=1`, label: "لوحة المستفيد", note: "بدون طلبات" },
       { href: routes.dashboardProvider, label: "لوحة مقدم الخدمة", note: "دخول مباشر" },
     ],
   },

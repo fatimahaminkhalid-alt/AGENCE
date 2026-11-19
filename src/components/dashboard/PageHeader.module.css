@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 24px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.text {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Large title: Alexandria Bold 40 */
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 2.2vw + 12px, 40px);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text);
+  text-wrap: balance;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.action {
+  flex: none;
+}
