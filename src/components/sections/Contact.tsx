@@ -31,7 +31,11 @@ export function Contact() {
                 <div>
                   <small>{item.label}</small>
                   <strong>
-                    {item.icon === "phone" ? (
+                    {item.icon === "mail" ? (
+                      <a href={`mailto:${item.value}`} dir="ltr">
+                        {item.value}
+                      </a>
+                    ) : item.icon === "phone" ? (
                       <a href="https://wa.me/966507042183" target="_blank" rel="noreferrer" dir="ltr">
                         {item.value}
                       </a>

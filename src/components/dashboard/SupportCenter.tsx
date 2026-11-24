@@ -37,7 +37,9 @@ export default function SupportCenter({ faqs }: { faqs: Faq[] }) {
             </span>
             <span>
               <small>البريد الإلكتروني</small>
-              <strong>يضاف البريد الرسمي</strong>
+              <a href="mailto:support@agence.sa" dir="ltr" aria-label="راسلنا عبر البريد الإلكتروني">
+                <strong>support@agence.sa</strong>
+              </a>
             </span>
           </li>
           <li>

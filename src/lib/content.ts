@@ -128,7 +128,7 @@ export const audiences = [
 ];
 
 export const contactInfo: { icon: IconName; label: string; value: string }[] = [
-  { icon: "mail", label: "البريد الإلكتروني", value: "يضاف البريد الرسمي" },
+  { icon: "mail", label: "البريد الإلكتروني", value: "support@agence.sa" },
   { icon: "phone", label: "رقم التواصل", value: "+966 50 704 2183" },
 ];
 
@@ -137,6 +137,7 @@ export const socialLinks = [
   { label: "X", href: "https://x.com/agenceksa" },
   { label: "Facebook", href: "https://www.facebook.com/people/Agence-App/61562006291541/" },
   { label: "TikTok", href: "https://www.tiktok.com/@agence.app" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/agenceksa/home/" },
 ];
 
 export const footerColumns = [
