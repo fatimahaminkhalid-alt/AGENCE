@@ -30,7 +30,15 @@ export function Contact() {
                 </span>
                 <div>
                   <small>{item.label}</small>
-                  <strong>{item.value}</strong>
+                  <strong>
+                    {item.icon === "phone" ? (
+                      <a href="https://wa.me/966507042183" target="_blank" rel="noreferrer" dir="ltr">
+                        {item.value}
+                      </a>
+                    ) : (
+                      item.value
+                    )}
+                  </strong>
                 </div>
               </li>
             ))}

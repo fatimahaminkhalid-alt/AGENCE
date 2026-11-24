@@ -133,9 +133,9 @@ export const contactInfo: { icon: IconName; label: string; value: string }[] = [
 ];
 
 export const socialLinks = [
-  { label: "Instagram", href: "https://www.instagram.com/agence.ksa/" },
+  { label: "Instagram", href: "https://www.instagram.com/agence.ksa?igsh=dHpuNXU5bHJrN2E1" },
   { label: "X", href: "https://x.com/agenceksa" },
-  { label: "Facebook", href: "https://www.facebook.com/AgenceApp" },
+  { label: "Facebook", href: "https://www.facebook.com/people/Agence-App/61562006291541/" },
   { label: "TikTok", href: "https://www.tiktok.com/@agence.app" },
 ];
 

@@ -46,7 +46,9 @@ export default function SupportCenter({ faqs }: { faqs: Faq[] }) {
             </span>
             <span>
               <small>رقم التواصل</small>
-              <strong>+966 50 704 2183</strong>
+              <a href="https://wa.me/966507042183" target="_blank" rel="noreferrer" dir="ltr" aria-label="راسلنا عبر واتساب">
+                <strong>+966 50 704 2183</strong>
+              </a>
             </span>
           </li>
         </ul>
