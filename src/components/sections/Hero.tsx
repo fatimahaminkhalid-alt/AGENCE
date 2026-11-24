@@ -22,10 +22,6 @@ export function Hero() {
 
       <div className={`container ${styles.inner}`}>
         <div className={styles.content} data-hero-content>
-          <p className={styles.tag} data-hero-item>
-            <Icon name="sparkle" />
-            {hero.tag}
-          </p>
           <h1 className={styles.title}>
             <SplitWords text={hero.title} />
           </h1>

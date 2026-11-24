@@ -43,18 +43,6 @@
   gap: 28px;
 }
 
-.tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  padding: 6px 16px;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(233, 109, 7, 0.45);
-  background: rgba(7, 6, 6, 0.25);
-  color: var(--c-accent);
-  font-size: var(--fs-sm);
-}
-
 .title {
   color: var(--c-white);
   font-size: var(--fs-hero);
