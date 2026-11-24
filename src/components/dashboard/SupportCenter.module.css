@@ -93,6 +93,13 @@
   font-size: 15px;
   font-weight: 600;
 }
+.channels a {
+  transition: color 0.2s;
+}
+.channels a:hover,
+.channels a:focus-visible {
+  color: var(--primary);
+}
 
 @media (max-width: 1100px) {
   .grid {

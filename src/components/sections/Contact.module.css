@@ -29,6 +29,13 @@
   color: var(--c-ink);
   font-weight: 500;
 }
+.list strong a {
+  transition: color 0.2s;
+}
+.list strong a:hover,
+.list strong a:focus-visible {
+  color: var(--c-primary);
+}
 
 .socials {
   display: flex;
