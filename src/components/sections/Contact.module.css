@@ -30,6 +30,21 @@
   font-weight: 500;
 }
 
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-top: 4px;
+  font-size: 0.875rem;
+}
+.social a {
+  color: var(--c-ink);
+  transition: color 0.2s;
+}
+.social a:hover {
+  color: var(--c-primary);
+}
+
 .icon {
   display: grid;
   place-items: center;

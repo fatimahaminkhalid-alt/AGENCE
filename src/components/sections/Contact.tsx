@@ -1,4 +1,4 @@
-import { contactInfo } from "@/lib/content";
+import { contactInfo, socialLinks } from "@/lib/content";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Icon } from "@/components/ui/Icon";
 import { SplitWords } from "@/components/motion/SplitWords";
@@ -34,6 +34,27 @@ export function Contact() {
                 </div>
               </li>
             ))}
+            <li>
+              <span className={styles.icon}>
+                <Icon name="share" />
+              </span>
+              <div>
+                <small>منصات التواصل الاجتماعي</small>
+                <div className={styles.socials}>
+                  {socialLinks.map((social) => (
+                    <span key={social.label} className={styles.social}>
+                      {social.href ? (
+                        <a href={social.href} target="_blank" rel="noreferrer" dir="ltr">
+                          {social.label} {social.account}
+                        </a>
+                      ) : (
+                        <span dir="ltr">{social.label} {social.account}</span>
+                      )}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </li>
           </ul>
         </div>
 
