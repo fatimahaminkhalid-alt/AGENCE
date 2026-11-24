@@ -38,6 +38,11 @@
   font-size: 0.875rem;
 }
 .social a {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-pill);
+  background: var(--c-white);
   color: var(--c-ink);
   transition: color 0.2s;
 }

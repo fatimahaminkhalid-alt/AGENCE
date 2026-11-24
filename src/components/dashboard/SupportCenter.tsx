@@ -46,7 +46,7 @@ export default function SupportCenter({ faqs }: { faqs: Faq[] }) {
             </span>
             <span>
               <small>رقم التواصل</small>
-              <strong>يضاف الرقم الرسمي</strong>
+              <strong>+966 50 704 2183</strong>
             </span>
           </li>
         </ul>

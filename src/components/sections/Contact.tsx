@@ -43,13 +43,9 @@ export function Contact() {
                 <div className={styles.socials}>
                   {socialLinks.map((social) => (
                     <span key={social.label} className={styles.social}>
-                      {social.href ? (
-                        <a href={social.href} target="_blank" rel="noreferrer" dir="ltr">
-                          {social.label} {social.account}
-                        </a>
-                      ) : (
-                        <span dir="ltr">{social.label} {social.account}</span>
-                      )}
+                      <a href={social.href} target="_blank" rel="noreferrer" dir="ltr">
+                        {social.label}
+                      </a>
                     </span>
                   ))}
                 </div>

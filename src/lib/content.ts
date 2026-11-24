@@ -129,14 +129,14 @@ export const audiences = [
 
 export const contactInfo: { icon: IconName; label: string; value: string }[] = [
   { icon: "mail", label: "البريد الإلكتروني", value: "يضاف البريد الرسمي" },
-  { icon: "phone", label: "رقم التواصل", value: "يضاف الرقم الرسمي" },
+  { icon: "phone", label: "رقم التواصل", value: "+966 50 704 2183" },
 ];
 
 export const socialLinks = [
-  { label: "إنستغرام", account: "@agence.ksa", href: "https://www.instagram.com/agence.ksa/" },
-  { label: "منصة إكس", account: "@agenceksa", href: "https://x.com/agenceksa" },
-  { label: "فيسبوك", account: "Agence App" },
-  { label: "تيك توك", account: "@agence.app", href: "https://www.tiktok.com/@agence.app" },
+  { label: "Instagram", href: "https://www.instagram.com/agence.ksa/" },
+  { label: "X", href: "https://x.com/agenceksa" },
+  { label: "Facebook", href: "https://www.facebook.com/AgenceApp" },
+  { label: "TikTok", href: "https://www.tiktok.com/@agence.app" },
 ];
 
 export const footerColumns = [
